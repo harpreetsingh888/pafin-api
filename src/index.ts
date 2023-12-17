@@ -2,7 +2,7 @@
 import express from "express";
 import { createConnection, Connection } from "typeorm";
 import userRoutes from "./routes/userRoutes";
-import { UserService } from "./services/userService"; // import your UserService
+import { UserService } from "./services/userService";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,6 +12,7 @@ app.use(express.json());
 let connection: Connection;
 let userService: UserService; // declare your UserService
 
+// database connection
 const connectToDatabase = async () => {
     try {
         await createConnection({

@@ -3,7 +3,11 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import { ParamsDictionary } from "express-serve-static-core";
 
-const secretKey = "pafin-api-key"; // Change this to a secure secret key
+const secretKey = "pafin-api-key";
+
+export const generateToken = (id: string): string => {
+    return jwt.sign({ id }, secretKey);
+}
 
 export const authenticateJWT = (req: Request, res: Response, next: NextFunction): void => {
     const token = req.header("Authorization")?.split(" ")[1];

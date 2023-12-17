@@ -10,3 +10,15 @@ services:
       POSTGRES_DB: pafin
     ports:
       - "5432:5432"
+
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      DATABASE_URL: postgres://harpreet:singh888@postgres:5432/pafin
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres

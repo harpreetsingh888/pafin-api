@@ -6,8 +6,6 @@ import { ParamsDictionary } from "express-serve-static-core";
 const secretKey = "pafin-api-key"; // Change this to a secure secret key
 
 export const authenticateJWT = (req: Request, res: Response, next: NextFunction): void => {
-
-
     const token = req.header("Authorization")?.split(" ")[1];
 
     if (!token) {

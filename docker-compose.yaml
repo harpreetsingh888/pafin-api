@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: harpreet
+      POSTGRES_PASSWORD: singh888
+      POSTGRES_DB: pafin
+    ports:
+      - "5432:5432"
